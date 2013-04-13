@@ -1,0 +1,67 @@
+{
+    "friendlyVersion": "VERSION",
+    "versionDefName": "PIXELWATCH",
+    
+    "media": [
+        {
+            "type": "raw",
+            "defName": "DUMMY",
+            "file": "resource_map.json"
+        },
+        {
+            "type": "png",
+            "defName": "IMAGE_BACKGROUND", 
+            "file": "images/bg.png"
+        },
+        {
+            "type": "png",
+            "defName": "IMAGE_ONE", 
+            "file": "images/1.png"
+        },
+        {
+            "type": "png",
+            "defName": "IMAGE_TWO", 
+            "file": "images/2.png"
+        },
+        {
+            "type": "png",
+            "defName": "IMAGE_THREE", 
+            "file": "images/3.png"
+        },
+        {
+            "type": "png",
+            "defName": "IMAGE_FOUR", 
+            "file": "images/4.png"
+        },
+        {
+            "type": "png",
+            "defName": "IMAGE_FIVE", 
+            "file": "images/5.png"
+        },
+        {
+            "type": "png",
+            "defName": "IMAGE_SIX", 
+            "file": "images/6.png"
+        },
+        {
+            "type": "png",
+            "defName": "IMAGE_SEVEN", 
+            "file": "images/7.png"
+        },
+        {
+            "type": "png",
+            "defName": "IMAGE_EIGHT", 
+            "file": "images/8.png"
+        },
+        {
+            "type": "png",
+            "defName": "IMAGE_NINE", 
+            "file": "images/9.png"
+        },
+        {
+            "type": "png",
+            "defName": "IMAGE_ZERO", 
+            "file": "images/0.png"
+        }
+    ]
+}
