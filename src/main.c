@@ -78,6 +78,8 @@ void handle_deinit(AppContextRef ctx) {
     
     for(int i = 0; i < 4; i++)
         unload_number(i >> 1, i & 1);
+    
+    bmp_deinit_container(&background);
 }
 
 void handle_minute_tick(AppContextRef ctx, PebbleTickEvent* t) {
