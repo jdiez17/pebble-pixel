@@ -51,8 +51,10 @@ void load_number(int row, int pos, int resid) {
 }
 
 void show_time(PblTm* t) {
-    load_number(0, 0, resources[t->tm_hour / 10]);
-    load_number(0, 1, resources[t->tm_hour % 10]);
+    unsigned short hour = (clock_is_24h_style() ? t->tm_hour : (t->tm_hour > 12 ? t->tm_hour - 12 : t->tm_hour));
+    
+    load_number(0, 0, resources[hour / 10]);
+    load_number(0, 1, resources[hour % 10]);
     load_number(1, 0, resources[t->tm_min / 10]);
     load_number(1, 1, resources[t->tm_min % 10]);
 }
