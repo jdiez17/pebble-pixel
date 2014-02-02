@@ -1,8 +1,19 @@
 #include <pebble.h>
 #include <time.h>
 
+typedef enum {
+    DISABLED = 1,
+    ENABLED = 1 << 1,
+    SHOWN = 1 << 2,
+} PiMode;
+
+// pi easter egg
+PiMode pi_status = DISABLED;
+GBitmap* pi;
+
 Window* window;
 BitmapLayer* background;
+GBitmap* background_bmp;
 Layer* w_layer;
 
 BitmapLayer* numbers[4];
@@ -51,6 +62,18 @@ void load_number(int row, int pos, int resid) {
 }
 
 void show_time(struct tm* t) {
+    if(pi_status & SHOWN) {
+        bitmap_layer_set_bitmap(background, background_bmp);
+        gbitmap_destroy(pi);
+
+        pi_status = DISABLED;
+    }
+
+    if(t->tm_hour == 3 && t->tm_min == 14) {
+        light_enable_interaction();
+        pi_status |= ENABLED;
+    }
+
     unsigned short hour = (clock_is_24h_style() ? t->tm_hour : (t->tm_hour > 12 ? t->tm_hour - 12 : t->tm_hour));
     
     load_number(0, 0, hour / 10);
@@ -63,16 +86,31 @@ void handle_minute_tick(struct tm* t, TimeUnits delta_t) {
     show_time(t);
 }
 
+void handle_tap(AccelAxisType axis, int32_t direction) {
+    if(pi_status & ENABLED) {
+        for(int i = 0; i < 4; i++)
+            unload_number(i >> 1, i & 1);
+
+        pi = gbitmap_create_with_resource(RESOURCE_ID_PI);
+        bitmap_layer_set_bitmap(background, pi);
+
+        pi_status |= SHOWN;
+    }
+}
+
 void handle_init(void) {
     window = window_create();
     window_stack_push(window, true);
     w_layer = window_get_root_layer(window);
 
     background = bitmap_layer_create(layer_get_frame(w_layer));
-    bitmap_layer_set_bitmap(background, gbitmap_create_with_resource(RESOURCE_ID_IMAGE_BACKGROUND));
+    background_bmp = gbitmap_create_with_resource(RESOURCE_ID_IMAGE_BACKGROUND);
+
+    bitmap_layer_set_bitmap(background, background_bmp);
     layer_add_child(w_layer, bitmap_layer_get_layer(background));
 
     tick_timer_service_subscribe(MINUTE_UNIT, handle_minute_tick);
+    accel_tap_service_subscribe(handle_tap);
 
     time_t now = time(NULL);
     struct tm* t = localtime(&now);
@@ -87,6 +125,7 @@ void handle_deinit(void) {
         unload_number(i >> 1, i & 1);
     
     tick_timer_service_unsubscribe();
+    accel_tap_service_unsubscribe();
 }
 
 int main(void) {

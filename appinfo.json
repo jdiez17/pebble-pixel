@@ -65,6 +65,11 @@
         "type": "png",
         "name": "IMAGE_ZERO",
         "file": "images/0.png"
+      },
+      {
+        "type": "png",
+        "name": "PI",
+        "file": "images/pi.png"
       }
     ]
   }
