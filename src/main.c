@@ -120,6 +120,7 @@ void handle_init(void) {
 void handle_deinit(void) {
     window_destroy(window);
     bitmap_layer_destroy(background);
+    gbitmap_destroy(background_bmp);
     
     for(int i = 0; i < 4; i++)
         unload_number(i >> 1, i & 1);
