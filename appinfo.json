@@ -1,0 +1,71 @@
+{
+  "uuid": "deefadde-feac-beef-99ef-beefbeefbeef",
+  "shortName": "Pixel Watch",
+  "longName": "Pixel Watch",
+  "companyName": "Jdiez",
+  "versionCode": 1,
+  "versionLabel": "1.0.0",
+  "watchapp": {
+    "watchface": true
+  },
+  "appKeys": {},
+  "resources": {
+    "media": [
+      {
+        "type": "png",
+        "name": "IMAGE_BACKGROUND",
+        "file": "images/bg.png"
+      },
+      {
+        "type": "png",
+        "name": "IMAGE_ONE",
+        "file": "images/1.png"
+      },
+      {
+        "type": "png",
+        "name": "IMAGE_TWO",
+        "file": "images/2.png"
+      },
+      {
+        "type": "png",
+        "name": "IMAGE_THREE",
+        "file": "images/3.png"
+      },
+      {
+        "type": "png",
+        "name": "IMAGE_FOUR",
+        "file": "images/4.png"
+      },
+      {
+        "type": "png",
+        "name": "IMAGE_FIVE",
+        "file": "images/5.png"
+      },
+      {
+        "type": "png",
+        "name": "IMAGE_SIX",
+        "file": "images/6.png"
+      },
+      {
+        "type": "png",
+        "name": "IMAGE_SEVEN",
+        "file": "images/7.png"
+      },
+      {
+        "type": "png",
+        "name": "IMAGE_EIGHT",
+        "file": "images/8.png"
+      },
+      {
+        "type": "png",
+        "name": "IMAGE_NINE",
+        "file": "images/9.png"
+      },
+      {
+        "type": "png",
+        "name": "IMAGE_ZERO",
+        "file": "images/0.png"
+      }
+    ]
+  }
+}
