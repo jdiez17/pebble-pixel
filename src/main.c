@@ -65,9 +65,8 @@ void show_time(struct tm* t) {
     if(pi_status & SHOWN) {
         bitmap_layer_set_bitmap(background, background_bmp);
         gbitmap_destroy(pi);
-
-        pi_status = DISABLED;
     }
+    pi_status = DISABLED;
 
     if(t->tm_hour == 3 && t->tm_min == 14) {
         light_enable_interaction();
